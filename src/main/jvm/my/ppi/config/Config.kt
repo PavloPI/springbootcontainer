@@ -1,5 +1,7 @@
 package my.ppi.config
 
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import java.util.logging.Logger
 
 object Config : ConfigProvider {
@@ -15,7 +17,9 @@ object Config : ConfigProvider {
     }
 }
 
-object ConfigFactory {
+@Configuration
+class ConfigFactory {
+    @Bean
     fun getConfig(): ConfigProvider {
         return Config
     }

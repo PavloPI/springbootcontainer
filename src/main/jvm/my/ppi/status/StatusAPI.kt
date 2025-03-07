@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/status")
-class StatusAPI {
-    val service = StatusService();
+class StatusAPI(private val service: StatusService) {
 
     @GetMapping(produces = ["application/json"])
     fun getCheckStatus(request: HttpServletRequest): ResponseEntity<ObjectNode> {
